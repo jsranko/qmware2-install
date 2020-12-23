@@ -1,0 +1,3 @@
+[submodule "qmware2"]
+	path = qmware2
+	url = https://github.com/Montego02/qmware2.git

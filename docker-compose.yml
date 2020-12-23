@@ -1,8 +1,9 @@
 version: '3.7'
 services:
  
-  php:
+  apache:
     image: san0123/centos8-apache24-php73
+    container_name: qmware2_apache
     volumes:
       - ~/qmware2:/var/www/html
     working_dir: /var/www/html  
@@ -12,6 +13,7 @@ services:
  
   mysql:
     image: mysql:5.6
+    container_name: qmware2_db
     volumes:
       - ~/qmware2-data:/var/lib/mysql
     restart: always
