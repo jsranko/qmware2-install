@@ -8,6 +8,7 @@ git clone https://github.com/jsranko/qmware2-install.git
 
 ```
 cd qmware2-install
+bash setup.sh
 ```
 
 ## Run
