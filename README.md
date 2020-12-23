@@ -1,15 +1,22 @@
 # qmware2-install
+
+# Setup
+Clone repository
+```
+git clone https://github.com/jsranko/qmware2-install.git
+```
+
 ```
 cd qmware2-install
 ```
 
-## Run it
+## Run
 
 ```
 sudo bash start.sh
 ```
 
-## Stop it
+## Stop
 
 ```
 sudo bash stop.sh
