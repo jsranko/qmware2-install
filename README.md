@@ -4,19 +4,21 @@ cd qmware2-install
 ```
 
 ## Run it
-Run it in background mode
+
 ```
-sudo /usr/local/bin/docker-compose up -d
+sudo bash start.sh
 ```
 
 ## Stop it
 
 ```
-sudo /usr/local/bin/docker-compose down
+sudo bash stop.sh
+```
 
-or
+## Update QMWare 2
 
-sudo docker stop $(sudo docker ps -aq) && sudo docker rm $(sudo docker ps -aq)
+```
+sudo bash update.sh
 ```
 
 https://www.digitalocean.com/community/tutorials/how-to-containerize-a-laravel-application-for-development-with-docker-compose-on-ubuntu-18-04-de
