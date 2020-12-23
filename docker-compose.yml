@@ -5,29 +5,20 @@ services:
     image: san0123/centos8-apache24-php73
     volumes:
       - ~/qmware2:/var/www/html
-  working_dir: /var/www/html  
-  restart: always
+    working_dir: /var/www/html  
+    restart: always
     ports:
       - 80:80
  
   mysql:
     image: mysql:5.6
     volumes:
-      - qmware_data:/var/lib/mysql
+      - ~/qmware2-data:/var/lib/mysql
     restart: always
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: /run/secrets/mysql_root_password
+      MYSQL_ROOT_PASSWORD: mysql_root_password
       MYSQL_DATABASE: qmware_db
       MYSQL_USER: qmware_usr
-      MYSQL_PASSWORD: /run/secrets/mysql_password
-    secrets:
-      - mysql_root_password
-      - mysql_password
- 
-secrets:
-  mysql_root_password:
-    filee: secrets/mysql_root_password.txt
-  mysql_password:
-    file: secrets/mysql_password.txt
+      MYSQL_PASSWORD: mysql_password
