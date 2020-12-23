@@ -1,7 +1,7 @@
 #!/bin/bash
+
 GITHUB_KEY=~/.ssh/github_id_rsa
 SSH_CONFIG=~/.ssh/config
-QMWARE_DIR=~/qmware2
 
 cd ~/.ssh
 
@@ -35,14 +35,11 @@ while true; do
     esac
 done
 
-if ! [ -d "${QMWARE_DIR}" ]; then
-   git clone git@github.com:Montego02/qmware2.git ${QMWARE_DIR}
-fi
+cd
 
 # Install docker
 if ! [ -f "/usr/bin/docker" ]; then
-   sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
-   sudo dnf install docker-ce --nobest -y
+   sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo && sudo dnf install docker-ce --nobest -y
    sudo iptables -t filter -F
    sudo iptables -t filter -X
 fi
@@ -53,5 +50,3 @@ if ! [ -f "/usr/local/bin/docker-compose" ]; then
    sudo chmod +x /usr/local/bin/docker-compose
 fi
 
-cd ~/docker-install
-sudo /usr/local/bin/docker-compose up -d 
