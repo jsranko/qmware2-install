@@ -50,3 +50,4 @@ if ! [ -f "/usr/local/bin/docker-compose" ]; then
    sudo chmod +x /usr/local/bin/docker-compose
 fi
 
+mkdir db_data

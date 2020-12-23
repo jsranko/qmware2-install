@@ -1,3 +1,5 @@
 #!/bin/bash
 
-git submodule update --recursive --remote
+cd qmware2
+git pull origin master
+cd

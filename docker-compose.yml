@@ -1,9 +1,9 @@
 version: '3.7'
 services:
  
-  apache:
+  qmware2_app:
     image: san0123/centos8-apache24-php73
-    container_name: qmware2_apache
+    container_name: qmware2_app
     volumes:
       - ./qmware2:/var/www/html
     working_dir: /var/www/html  
@@ -11,16 +11,17 @@ services:
     ports:
       - 80:80
  
-  mysql:
+  qmware2_db:
     image: mysql:5.6
     container_name: qmware2_db
     volumes:
-      - ../qmware2-data:/var/lib/mysql
+      - ./qmware2/sql/db_init.sql:/docker-entrypoint-initdb.d/1-schema.sql
+      - ./db_data:/var/lib/mysql
     restart: always
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: mysql_root_password
-      MYSQL_DATABASE: qmware_db
-      MYSQL_USER: qmware_usr
-      MYSQL_PASSWORD: mysql_password
+      MYSQL_ROOT_PASSWORD: ${QMWARE_DB_ROOT}
+      MYSQL_DATABASE: ${QMWARE_DB}
+      MYSQL_USER: ${QMWARE_DB_USER}
+      MYSQL_PASSWORD: ${QMWARE_DB_PASSWORD}
