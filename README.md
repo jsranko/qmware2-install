@@ -15,6 +15,11 @@ sudo bash start.sh
 sudo bash stop.sh
 ```
 
+Stop and remove all images
+```
+sudo bash stop.sh --rmi all
+```
+
 ## Update QMWare 2
 
 ```
