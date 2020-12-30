@@ -43,6 +43,8 @@ if ! [ -f "/usr/bin/docker" ]; then
    sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo && sudo dnf install docker-ce --nobest -y
    sudo iptables -t filter -F
    sudo iptables -t filter -X
+   sudo systemctl start docker
+   sudo systemctl enable docker
 fi
 
 if ! [ -f "/usr/local/bin/docker-compose" ]; then
@@ -64,4 +66,4 @@ if ! [ -f "${QMWARE2_DIR}/configuration.php" ]; then
    nano ${QMWARE2_DIR}/configuration.php
 fi
 
-mkdir db_data
+mkdir ${QMWARE2_DIR}/db_data
