@@ -2,6 +2,7 @@
 
 GITHUB_KEY=~/.ssh/github_id_rsa
 SSH_CONFIG=~/.ssh/config
+QMWARE2_DIR=~/qmware2
 
 cd ~/.ssh
 
@@ -50,6 +51,17 @@ if ! [ -f "/usr/local/bin/docker-compose" ]; then
    sudo chmod +x /usr/local/bin/docker-compose
    sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
+fi
+
+# Install qmware2
+if ! [ -d "${QMWARE2_DIR}" ]; then
+   git clone git@github.com:Montego02/qmware2.git ${QMWARE2_DIR}
+fi
+
+# Configure
+if ! [ -f "${QMWARE2_DIR}/configuration.php" ]; then
+   cp configuration_tmp.php configuration.php
+   nano ${QMWARE2_DIR}/configuration.php
 fi
 
 mkdir db_data
