@@ -60,7 +60,7 @@ fi
 
 # Configure
 if ! [ -f "${QMWARE2_DIR}/configuration.php" ]; then
-   cp configuration_tmp.php configuration.php
+   cp ${QMWARE2_DIR}/configuration_tmp.php ${QMWARE2_DIR}/configuration.php
    nano ${QMWARE2_DIR}/configuration.php
 fi
 
